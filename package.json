@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "migrate": "npx knex migrate:latest",
+    "seed": "npx knex seed:run",
+    "migrate-seed-start": "npm run migrate && npm run seed && npm start"
   },
   "type": "module",
   "keywords": [],

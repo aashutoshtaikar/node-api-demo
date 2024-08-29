@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=example@123
+      - MYSQL_DATABASE=react_demo
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          memory: 2048M  # Increase if necessary
+          cpus: '1'
+    command: ./wait-for-it.sh --host=db --port=3306 -- npx knex migrate:latest && npx knex seed:run && npm start
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example@123
+      MYSQL_DATABASE: react_demo
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  db-data:
