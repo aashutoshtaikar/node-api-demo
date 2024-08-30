@@ -63,7 +63,7 @@ const getUserById = async (req, res) => {
         return res.status(404).send('User not found');
       }
   
-      res.json(userData);
+      res.json(user);
   
     } catch (error) {
       console.error('Error fetching user data:', error);

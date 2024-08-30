@@ -10,6 +10,11 @@ app.use(express.json());
 
 app.use('/api', userRoute)
 
+app.get('/getIp', (req, res) => {
+  const clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  res.send(`Your IP address is ${clientIp}`);
+});
+
 
 // app.post('/upload', upload.single('image'), async (req, res) => {
 //     try {

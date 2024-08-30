@@ -46,3 +46,14 @@ npx knex seed:run
 ```
 node index.js
 ```
+
+## Run in docker:
+
+docker exec -it 0061378b014d /bin/sh
+
+docker-compose down -v 
+
+docker-compose up --build
+
+
+docker-compose run app sh

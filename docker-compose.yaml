@@ -17,8 +17,8 @@ services:
       resources:
         limits:
           memory: 2048M  # Increase if necessary
-          cpus: '1'
-    command: ./wait-for-it.sh --host=db --port=3306 -- npx knex migrate:latest && npx knex seed:run && npm start
+          cpus: '2'
+    command: ./wait-for-it.sh --host=db --port=3306 -- npm run migrate-seed-start
 
   db:
     image: mysql:8.0
