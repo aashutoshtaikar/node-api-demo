@@ -57,3 +57,4 @@ docker-compose up --build
 
 
 docker-compose run app sh
+
