@@ -17,7 +17,7 @@ services:
       resources:
         limits:
           memory: 2048M  # Increase if necessary
-          cpus: '2'
+          cpus: '1'
     command: ./wait-for-it.sh --host=db --port=3306 -- npm run migrate-seed-start
 
   db:
