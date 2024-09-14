@@ -16,7 +16,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'  # Set this to be within the available range (e.g., 0.5 for half a CPU)
+          cpus: '0.3'  # Set this to be within the available range (e.g., 0.5 for half a CPU)
         reservations:
           cpus: '0.25'  # Optional, reserve part of a CPU
     command: ./wait-for-it.sh --host=db --port=3306 -- npm run migrate-seed-start
