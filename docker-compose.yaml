@@ -13,11 +13,6 @@ services:
       - MYSQL_DATABASE=react_demo
     depends_on:
       - db
-    deploy:
-      resources:
-        limits:
-          memory: 2048M  # Increase if necessary
-          cpus: '0.7'
     command: ./wait-for-it.sh --host=db --port=3306 -- npm run migrate-seed-start
 
   db:
