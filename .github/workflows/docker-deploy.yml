@@ -45,8 +45,8 @@ jobs:
           envsub .env.sample .env
           
           # Stop and remove any existing containers
-          docker-compose -f docker-compose.yaml down -v
+          docker-compose --env-file .env -f docker-compose.yaml down -v
 
           # Start the containers with the latest images
-          docker-compose -f docker-compose.yaml up -d
+          docker-compose --env-file .env -f docker-compose.yaml up -d
         EOF
